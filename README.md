@@ -1,1 +1,1 @@
-# Cubes
+# SoftUni JS Backend Project
