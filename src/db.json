@@ -18,5 +18,11 @@
         "name": "Megaminx",
         "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/61HpQqVQ37L._SY355_.jpg",
         "difficultyLevel": 3
+    },
+    {
+        "name": "Funny one",
+        "description": "some",
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1tjn3zQXgt5YDS6ZWZVUjZlG06blUrzhCmg&usqp=CAU",
+        "difficultyLevel": "1"
     }
 ]
