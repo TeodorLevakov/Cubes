@@ -13,13 +13,13 @@ exports.save = (cube) => {
         
 }
 
-exports.getOne = (id) => cubes[id];
+exports.getOne = (id) => cubes.find(x => x.id === Number(id));
 
 exports.getAll = (search = '', fromInput, toInput) => {
 
     const from = Number(fromInput) || 0;
     const to = Number(toInput) || 6;
-    
+
     const result = cubes
         .filter(x => x.name.toLowerCase().includes(search?.toLowerCase()))
         .filter(x => x.difficultyLevel >= from && x.difficultyLevel <= to);
