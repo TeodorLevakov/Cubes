@@ -3,6 +3,7 @@ const fs = require('fs/promises');
 const path = require('path');
 
 const cubes = require('../db.json');
+const { log } = require('console');
 
 exports.save = (cube) => {
     
@@ -13,3 +14,11 @@ exports.save = (cube) => {
 }
 
 exports.getOne = (id) => cubes[id];
+
+exports.getAll = (search = '', from = 0, to = 6) => {
+    const result = cubes
+        .filter(x => x.name.toLowerCase().includes(search?.toLowerCase()))
+        .filter(x => x.difficultyLevel >= from && x.difficultyLevel <= to);
+
+    return result;
+};
