@@ -41,5 +41,11 @@ router.get('/details/:id', async (req, res) => {
 
 });
 
+router.get('/:id/attach', (req, res) => {
+    
+    
+    res.render('attachAccessory');
+});
+
 
 module.exports = router;
