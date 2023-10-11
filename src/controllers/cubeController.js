@@ -1,32 +1,41 @@
 const router = require('express').Router();
 
-const { save, getOne } = require('../services/cubeService');
+const { create } = require('express-handlebars');
+const cubeService = require('../services/cubeService');
 
 router.get('/create', (req, res) => {
     res.render('create');
 });
 
-router.post('/create', (req, res) => {
+router.post('/create', async (req, res) => {
 
     const cube = req.body;
     //validate
     if (cube.name.length < 2) {
         return res.status(400).send('invalid name');
     }
+
+    try {
+        await cubeService.create(cube);
+
+        res.redirect('/');
+    } catch (error) {
+        res.status(400).send(error);
+    }
     //save data
-    save(cube)
-        .then(() => {
-            res.redirect('/');
-        }).catch(err => {
-            res.status(400).send(err);
-        });
+    // save(cube)
+    //     .then(() => {
+    //         res.redirect('/');
+    //     }).catch(err => {
+    //         res.status(400).send(err);
+    //     });
 });
 
-router.get('/details/:id', (req, res) => {
+router.get('/details/:id', async (req, res) => {
 
-    const cubeId = Number(req.params.id);
+    const cubeId = req.params.id;
 
-    const cube = getOne(cubeId);
+    const cube = await cubeService.getOne(cubeId).lean();
 
     res.render('details', { cube });
 
