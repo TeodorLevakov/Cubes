@@ -13,7 +13,7 @@ router.post('/create', async (req, res) => {
 
     await accessoryService.create(accessory);
 
-    res.render('/');
+    res.redirect('/');
 });
 
 

@@ -9,9 +9,7 @@ const accessSchema = new mongoose.Schema({
         type: String,
         required: true,
         validate: {
-            validator:function() {
-                return this.imageUrl.startsWhit('http')
-            },
+            validator: /^https?/g,
             message: 'Img schuld start http/s'
         }
     },
