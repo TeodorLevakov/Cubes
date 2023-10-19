@@ -16,8 +16,9 @@ const { Accessory } = require('../models/Accessory');
 
 exports.create = (cube) => Cube.create(cube);
 
-exports.getOne = (id) => Cube.findById(id);
+exports.getOne = (id) => Cube.findById(id).populate('accessories');
         //cubes.find(x => x.id === Number(id));
+
 
 exports.getAll = (search = '', fromInput, toInput) => {
     
