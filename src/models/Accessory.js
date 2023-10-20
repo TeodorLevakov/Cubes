@@ -8,10 +8,10 @@ const accessSchema = new mongoose.Schema({
     imageUrl: {
         type: String,
         required: true,
-        validate: {
-            validator: /^https?/g,
-            message: 'Img schuld start http/s'
-        }
+        // validate: {
+        //     validator: /^https?/g,
+        //     message: 'Img schuld start http/s'
+        // }
     },
     description: {
         type: String,

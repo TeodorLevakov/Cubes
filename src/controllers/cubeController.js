@@ -36,8 +36,9 @@ router.get('/details/:id', async (req, res) => {
 
     const cubeId = req.params.id;
 
-    const cube = await cubeService.getOne(cubeId).lean();
+    const cube = await cubeService.getOneDetails(cubeId).lean();
 
+    console.log(cube);
     res.render('details', { cube });
 
 });
@@ -46,7 +47,7 @@ router.get('/:cubeid/attach', async (req, res) => {
     
     const cube = await cubeService.getOne(req.params.cubeid).lean();
 
-    const accessories = await accessoryService.getAll().lean();
+    const accessories = await accessoryService.getAllWhithout(cube.accessories).lean();
 
     res.render('attachAccessory', { cube, accessories });
 });
