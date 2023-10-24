@@ -15,8 +15,19 @@ router.post('/register', async (req, res) => {
     } else {
         res.redirect('404');
     }
+});
 
-    res.render('auth/register');
+router.get('/login', (req, res) => {
+
+
+    res.render('auth/login');
+});
+
+router.post('/login', (req, res) => {
+
+    console.log(req.body);
+
+    res.end();
 });
 
 
