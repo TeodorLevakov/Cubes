@@ -33,6 +33,7 @@ router.post('/login', async (req, res) => {
         return res.redirect('/404');
     }
 
+    res.cookie('session', token)
     res.redirect('/');
 });
 
