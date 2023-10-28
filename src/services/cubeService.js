@@ -16,6 +16,10 @@ const { Accessory } = require('../models/Accessory');
 
 exports.create = (cube) => Cube.create(cube);
 
+exports.edit = (cubeId, cubeData) => Cube.findByIdAndUpdate(cubeId,cubeData, {runValidators: true});
+
+exports.delete = (cubeId) => Cube.findByIdAndDelete(cubeId);
+
 exports.getOne = (id) => Cube.findById(id);
 
 exports.getOneDetails = (id) => Cube.findById(id).populate('accessories');

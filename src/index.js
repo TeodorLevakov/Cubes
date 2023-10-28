@@ -4,6 +4,7 @@ const cookeiParser = require('cookie-parser');
 const { initDB } = require('./config/database');
 
 const routes = require('./routes');
+const { auth } = require('./middlewares/authMiddleware');
 const app = express();
 
 require('./config/handlebars')(app);
@@ -13,8 +14,7 @@ app.use(cookeiParser());
 
 app.use(express.urlencoded({extended: false}));
 
-
-
+app.use(auth);
 app.use(routes);
 
 initDB()
